@@ -23,7 +23,7 @@ h1 {
 }
 
 input {
-    width: 70%;
+    width: calc(70% - 20px); /* Adjusted width for better alignment */
     padding: 10px;
     margin-right: 10px;
 }
@@ -44,14 +44,16 @@ button:hover {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .column {
-    flex: 1;
+    flex: 1 1 280px; /* Flex-grow, flex-shrink, flex-basis */
     margin: 0 10px;
     background-color: #e9ecef;
     border-radius: 5px;
     padding: 10px;
+    min-width: 250px; /* Minimum width for each column */
 }
 
 h2 {
@@ -68,4 +70,23 @@ h2 {
 
 .task:hover {
     background: #f0f0f0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    input {
+        width: 60%; /* Adjust input width on smaller screens */
+    }
+
+    button {
+        width: 30%; /* Resize the button */
+    }
+
+    .board {
+        flex-direction: column; /* Stack columns vertically on small screens */
+    }
+
+    .column {
+        margin: 10px 0; /* Adjust margin for stacked columns */
+    }
 }
